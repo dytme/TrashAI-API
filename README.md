@@ -1,7 +1,7 @@
 
 # TrashAI-API
 
-Custom Backend for the [TrashAI Repository](https://github.com/opensacorg/trash-ai) using [TensorFlow JS](https://www.tensorflow.org/js), which allows you to skip the included front-end of the original product and, send a HTTP request containing a .jpg image to the model, in order to receive the most likely detected object directly.
+Custom Backend for the [TrashAI Repository](https://github.com/opensacorg/trash-ai) using [TensorFlow JS](https://www.tensorflow.org/js) and [NodeJS](https://nodejs.org/en), which allows you to skip the included front-end of the original product and, send a HTTP request containing a .jpg image to the model, in order to receive the most likely detected object directly.
 
 
 
