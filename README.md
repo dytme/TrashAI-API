@@ -1,7 +1,7 @@
 
 # TrashAI-API
 
-Custom Backend for the [TrashAI Repository](https://github.com/opensacorg/trash-ai) using [TensorFlow JS](https://www.tensorflow.org/js), which allows you to skip the included front-end of the original product and, send a HTTP request containing a .jpg image to the model, in order to receive the most likely detected object directly.
+Custom Backend for the [TrashAI Repository](https://github.com/opensacorg/trash-ai) using [TensorFlow JS](https://www.tensorflow.org/js) and [NodeJS](https://nodejs.org/en), which allows you to skip the included front-end of the original product and send a HTTP request, containing a .jpg image, directly to the model, in order to receive the most likely detected object.
 
 
 
@@ -10,7 +10,7 @@ Custom Backend for the [TrashAI Repository](https://github.com/opensacorg/trash-
 
 ### Endpoint
 
-The server listens on port 3000 for requests at the URL `/detect`. It only accepts requests that are of `Content-Type` `image/jpeg`. You can send the data in the form of raw bytes, and the API will handle the required decoding and transformations for the model to analyze.
+The server listens on port 3000 for requests at the URL `/detect`. It only accepts requests that are of `Content-Type` `image/jpeg`. You can send the image in the form of a byte array, and the API will handle the required decoding and transformations for the model to analyze.
 
 ```http
   POST http://localhost:3000/detect
