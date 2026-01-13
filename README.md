@@ -60,14 +60,25 @@ try {
 
 ## Deployment
 
-To deploy this project, you first have to run a static HTTP server, containing the model's weights, for TensorFlowJS to reference. You can do this by running:
+### Docker
+
+To deploy this project using Docker, you first have to build an image.
 
 ```bash
-  npm run model-data
+  docker build -t trash-ai-api . 
 ```
 
-After that, you can initialize the model's server with
+You can then run the image as a container, exposing port 3000 through:
+
 ```bash
-  npm run model-api
+  docker run -p 3000:3000 trash-ai-api
 ```
 
+
+### Natively (In the Terminal)
+
+Keep in mind that this mode requires that you handle dependencies (like the correct version of Node) yourself. The project was built around `Node 20.19.6`
+For testing purposes, you can easily run the model using:
+```bash
+  npm run start-api
+```
