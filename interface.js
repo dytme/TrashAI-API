@@ -1,10 +1,14 @@
 
+// █▀▀ ▀▄▀ ▀█▀ █▀▀ █▀█ █▄░█ ▄▀█ █░░   █▀▀ █▀█ █▀▀ █▀▄ █ ▀█▀ █▀
+// ██▄ █░█ ░█░ ██▄ █▀▄ █░▀█ █▀█ █▄▄   █▄▄ █▀▄ ██▄ █▄▀ █ ░█░ ▄█
+
+
 // █▀█ █▀▀ █▀█ █░█ █ █▀█ █▀▀ █▀▄▀█ █▀▀ █▄░█ ▀█▀ █▀
 // █▀▄ ██▄ ▀▀█ █▄█ █ █▀▄ ██▄ █░▀░█ ██▄ █░▀█ ░█░ ▄█
 
 tf = require('@tensorflow/tfjs'); // Load in the TensorFlow package
 fs = require('fs');               // File loading system. Here to manually load in images and test the model.
-jpeg = require('jpeg-js');        // Package that converts a .jpg image into raw data, for the model.
+jpeg = require('jpeg-js');        // Package that converts a .jpg image into raw data, for the model. Copyright (c) 2014, Eugene Ware. All rights reserved.
 http = require("http");           // HTTP Module - Handles HTTP requests.
 
 let model // Global variable for the model.
@@ -67,9 +71,6 @@ async function runModel(rawImageData) {
                     // 0-59, with -1 meaning that the model found nothing.
 
 }
-
-
-
 
 
 
