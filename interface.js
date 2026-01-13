@@ -105,7 +105,7 @@ async function main() {
                 return res.end("Expected image/jpeg for the model to process.");
             }
 
-            const dataChunks = []; // Define a blank array of data chunks, where we will store the bytes of the image as they come.
+            let dataChunks = []; // Define a blank array of data chunks, where we will store the bytes of the image as they come.
 
             // Runs while we're still receiving data.
             req.on("data", function(chunk) {
@@ -120,11 +120,25 @@ async function main() {
             // Runs once all of the data has been sent.
             req.on("end", async function() {
                 const image = Buffer.concat(dataChunks);
+                dataChunks = []; // Reset dataChunks after concating them in one single image.
 
                 try {
                     
                     // Attempt to decode the image sent over the HTTP request.
                     const rawImageData = jpeg.decode(image, {formatAsRGBA: false});
+
+                    console.log(rawImageData);
+
+                    // Save the last searched image as a file.
+                    let dataToEncode = {    
+                        data: rawImageData,
+                        width: 640,
+                        height: 480,
+                    };
+
+                    let encodedImage = jpeg.encode(dataToEncode, 50);
+                    fs.writeFileSync('last-image.jpg', encodedImage.data);
+                    
 
                     // Run the model and store the result.
                     let modelResult = await runModel(rawImageData);
