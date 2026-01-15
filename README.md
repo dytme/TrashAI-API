@@ -29,8 +29,6 @@ Possible responses include:
 | "-1"        | No object has been detected.                                                                    |
 | "0" to "59" | Most likely detection. Can be looked up in name-map.json                                        |
 
-
-
 ### Example: Using Java HttpClient
 
 ```java
@@ -58,9 +56,14 @@ try {
 }
 ```
 
+
+
 ## Deployment
 
-### Docker
+### Docker (Recommended)
+> ✅
+>
+> This deployment is compatible with both Node/CPU & JavaScript/WebGL
 
 To deploy this project using Docker, you first have to build an image.
 
@@ -75,10 +78,13 @@ You can then run the image as a container, exposing port 3000 through:
 ```
 
 
-### Natively (In the Terminal)
+### Terminal 
+> ⚠️
+>
+> This deployment is only for the JavaScript / WebGL release.
 
-Keep in mind that this mode requires that you handle dependencies (like the correct version of Node) yourself. The project was built around `Node 20.19.6`
-For testing purposes, you can easily run the model using:
+Keep in mind that this mode requires that you handle dependencies (like the correct version of Node) yourself. The project was built around `Node 18-slim`
+For testing purposes, you can run the model using:
 ```bash
   npm run start-api
 ```
