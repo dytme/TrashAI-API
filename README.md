@@ -77,6 +77,8 @@ You can then run the image as a container, exposing port 3000 through:
   docker run -p 3000:3000 trash-ai-api
 ```
 
+After this first terminal-driven run, you will then be able to handle this container directly in Docker Desktop (if applicable)
+
 
 ### Terminal 
 > ⚠️
