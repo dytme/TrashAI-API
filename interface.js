@@ -6,7 +6,7 @@
 // █▀█ █▀▀ █▀█ █░█ █ █▀█ █▀▀ █▀▄▀█ █▀▀ █▄░█ ▀█▀ █▀
 // █▀▄ ██▄ ▀▀█ █▄█ █ █▀▄ ██▄ █░▀░█ ██▄ █░▀█ ░█░ ▄█
 
-tf = require('@tensorflow/tfjs'); // Load in the TensorFlow package
+tf = require('@tensorflow/tfjs-node'); // Load in the TensorFlow package
 fs = require('fs');               // File loading system. Here to manually load in images and test the model.
 jpeg = require('jpeg-js');        // Package that converts a .jpg image into raw data, for the model. Copyright (c) 2014, Eugene Ware. All rights reserved.
 http = require("http");           // HTTP Module - Handles HTTP requests.
@@ -84,10 +84,13 @@ async function main() {
 
     // █░░ █▀█ ▄▀█ █▀▄   █▀▄▀█ █▀█ █▀▄ █▀▀ █░░
     // █▄▄ █▄█ █▀█ █▄▀   █░▀░█ █▄█ █▄▀ ██▄ █▄▄
+
+    // Wait for the model to mark itself as 'ready' before giving it commands.
+    await tf.ready();
     
     // Create an AI Model instance by giving TensorFlow the model.json file + .bin weigh data
     model = await tf.loadGraphModel('http://localhost:4000/model.json');
-    console.log('model.json file loaded in succesfully.');
+    console.log('API: model.json file loaded in succesfully.');
     
 
 
@@ -181,13 +184,10 @@ async function main() {
 
     });
 
+    console.log("API: Server listening on port 3000.")
+
     server.listen(3000);
 
-
-
-
-
-    
 
 }
 
